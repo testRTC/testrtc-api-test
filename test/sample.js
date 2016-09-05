@@ -7,8 +7,11 @@ var request = require('supertest');
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0
 
+// data is under pooja10404@gmail.com on staging1
+//.
+
 describe('call testrtc api', function () {
-  var apikey = 'a1596921-3733-4be8-9248-06dc82ca2821';
+  var apikey = '8406996b-be20-414c-877c-8b2591b23e86';
   var apiUrl = 'https://api.testrtc.com/v1s1';
   var testId1 = '5735ae56bcf6231100d8c36e';
   var testRunId1='5714b3600d7bbb140063cdd8';
