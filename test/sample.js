@@ -152,6 +152,52 @@ describe('call testrtc api', function () {
       });
       });
    });
+
+  it('runTestById with correct details + override machine profiles', function(done) {
+    this.timeout(20000);
+    request(apiUrl)
+      .post("/tests/"+testId1+"/run")
+      .set({apikey : apikey})
+      .set('Content-Type',  'application/json')
+      .send({
+        "webhook": {
+          "url": "https://httpbin.org/get",
+          "input": {}
+        },
+        "executionParameters": {
+          "concurrentUsers": 2
+        },
+        "machineProfiles": [
+          {
+            "browser": "Chrome Stable",
+            "location": "East-US",
+            "networkProfile": "",
+            "firewallProfile": "",
+            "media": "birds.webm"
+          }
+        ]
+      })
+      .expect(200) //Status code
+      .end(function(err,res) {
+        if (err) {
+          throw err;
+        }
+        res.body.testRunId.should.not.null;
+        request(apiUrl)
+      .get("/testruns/"+res.body.testRunId)
+      .set({apikey : apikey})
+      .expect(200) //Status code
+      .end(function(err,res) {
+        if (err) {
+          throw err;
+        } 
+
+        res.body.concurrentUsers.should.equal(2);
+        res.body.status.should.equal('started');
+        done();
+      });
+      });
+   });
    
    /*
 	 * Test DefaultApi.runTestById(String testId, TestRunParameters parameters). With wrong test id.
