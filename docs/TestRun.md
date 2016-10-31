@@ -14,5 +14,6 @@ Name | Type | Description | Notes
 **startTime** | **String** | The starting time of the test run | [optional] 
 **duration** | **Integer** | (in seconds) The total duration of the test run | [optional] 
 **agents** | **[String]** | The list of unique test agents used in the given test run. This can either be ID values or expanded TestAgent objects, depending on which API call was made and what parameters was passed to it. | [optional] 
+**url** | **String** | URL of this test result | [optional] 
 
 
