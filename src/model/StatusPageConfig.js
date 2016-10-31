@@ -34,7 +34,7 @@
     if (!root.TestRtcApi) {
       root.TestRtcApi = {};
     }
-    root.TestRtcApi.TestRunParametersWebhook = factory(root.TestRtcApi.ApiClient);
+    root.TestRtcApi.StatusPageConfig = factory(root.TestRtcApi.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,57 +43,73 @@
 
 
   /**
-   * The TestRunParametersWebhook model module.
-   * @module model/TestRunParametersWebhook
+   * The StatusPageConfig model module.
+   * @module model/StatusPageConfig
    * @version 1.0.0
    */
 
   /**
-   * Constructs a new <code>TestRunParametersWebhook</code>.
-   * The Webhook is used to call the customer&#39;s own API when an operation in testRTC&#39;s API completes.
-   * @alias module:model/TestRunParametersWebhook
+   * Constructs a new <code>StatusPageConfig</code>.
+   * The configuration of current environment
+   * @alias module:model/StatusPageConfig
    * @class
-   * @param url {String} The URL to connect to using HTTP(S) GET when the operation completes
-   * @param input {Object} The value to pass to the URL
    */
-  var exports = function(url, input) {
+  var exports = function() {
     var _this = this;
 
-    _this['url'] = url;
-    _this['input'] = input;
+
+
+
+
   };
 
   /**
-   * Constructs a <code>TestRunParametersWebhook</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>StatusPageConfig</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/TestRunParametersWebhook} obj Optional instance to populate.
-   * @return {module:model/TestRunParametersWebhook} The populated <code>TestRunParametersWebhook</code> instance.
+   * @param {module:model/StatusPageConfig} obj Optional instance to populate.
+   * @return {module:model/StatusPageConfig} The populated <code>StatusPageConfig</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('url')) {
-        obj['url'] = ApiClient.convertToType(data['url'], 'String');
+      if (data.hasOwnProperty('systemName')) {
+        obj['systemName'] = ApiClient.convertToType(data['systemName'], 'String');
       }
-      if (data.hasOwnProperty('input')) {
-        obj['input'] = ApiClient.convertToType(data['input'], Object);
+      if (data.hasOwnProperty('instanceName')) {
+        obj['instanceName'] = ApiClient.convertToType(data['instanceName'], 'String');
+      }
+      if (data.hasOwnProperty('agentVersion')) {
+        obj['agentVersion'] = ApiClient.convertToType(data['agentVersion'], 'String');
+      }
+      if (data.hasOwnProperty('version')) {
+        obj['version'] = ApiClient.convertToType(data['version'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * The URL to connect to using HTTP(S) GET when the operation completes
-   * @member {String} url
+   * The system name of environment
+   * @member {String} systemName
    */
-  exports.prototype['url'] = undefined;
+  exports.prototype['systemName'] = undefined;
   /**
-   * The value to pass to the URL
-   * @member {Object} input
+   * The name of instance
+   * @member {String} instanceName
    */
-  exports.prototype['input'] = undefined;
+  exports.prototype['instanceName'] = undefined;
+  /**
+   * The version of agent
+   * @member {String} agentVersion
+   */
+  exports.prototype['agentVersion'] = undefined;
+  /**
+   * The current version
+   * @member {String} version
+   */
+  exports.prototype['version'] = undefined;
 
 
 

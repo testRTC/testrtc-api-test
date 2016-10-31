@@ -34,7 +34,7 @@
     if (!root.TestRtcApi) {
       root.TestRtcApi = {};
     }
-    root.TestRtcApi.TestRunParametersWebhook = factory(root.TestRtcApi.ApiClient);
+    root.TestRtcApi.BlobUploadResult = factory(root.TestRtcApi.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,57 +43,45 @@
 
 
   /**
-   * The TestRunParametersWebhook model module.
-   * @module model/TestRunParametersWebhook
+   * The BlobUploadResult model module.
+   * @module model/BlobUploadResult
    * @version 1.0.0
    */
 
   /**
-   * Constructs a new <code>TestRunParametersWebhook</code>.
-   * The Webhook is used to call the customer&#39;s own API when an operation in testRTC&#39;s API completes.
-   * @alias module:model/TestRunParametersWebhook
+   * Constructs a new <code>BlobUploadResult</code>.
+   * @alias module:model/BlobUploadResult
    * @class
-   * @param url {String} The URL to connect to using HTTP(S) GET when the operation completes
-   * @param input {Object} The value to pass to the URL
+   * @param fullBlobName {String} 
    */
-  var exports = function(url, input) {
+  var exports = function(fullBlobName) {
     var _this = this;
 
-    _this['url'] = url;
-    _this['input'] = input;
+    _this['fullBlobName'] = fullBlobName;
   };
 
   /**
-   * Constructs a <code>TestRunParametersWebhook</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>BlobUploadResult</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/TestRunParametersWebhook} obj Optional instance to populate.
-   * @return {module:model/TestRunParametersWebhook} The populated <code>TestRunParametersWebhook</code> instance.
+   * @param {module:model/BlobUploadResult} obj Optional instance to populate.
+   * @return {module:model/BlobUploadResult} The populated <code>BlobUploadResult</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('url')) {
-        obj['url'] = ApiClient.convertToType(data['url'], 'String');
-      }
-      if (data.hasOwnProperty('input')) {
-        obj['input'] = ApiClient.convertToType(data['input'], Object);
+      if (data.hasOwnProperty('fullBlobName')) {
+        obj['fullBlobName'] = ApiClient.convertToType(data['fullBlobName'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * The URL to connect to using HTTP(S) GET when the operation completes
-   * @member {String} url
+   * @member {String} fullBlobName
    */
-  exports.prototype['url'] = undefined;
-  /**
-   * The value to pass to the URL
-   * @member {Object} input
-   */
-  exports.prototype['input'] = undefined;
+  exports.prototype['fullBlobName'] = undefined;
 
 
 

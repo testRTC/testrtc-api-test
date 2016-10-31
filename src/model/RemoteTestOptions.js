@@ -34,7 +34,7 @@
     if (!root.TestRtcApi) {
       root.TestRtcApi = {};
     }
-    root.TestRtcApi.TestRunParametersWebhook = factory(root.TestRtcApi.ApiClient);
+    root.TestRtcApi.RemoteTestOptions = factory(root.TestRtcApi.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,57 +43,47 @@
 
 
   /**
-   * The TestRunParametersWebhook model module.
-   * @module model/TestRunParametersWebhook
+   * The RemoteTestOptions model module.
+   * @module model/RemoteTestOptions
    * @version 1.0.0
    */
 
   /**
-   * Constructs a new <code>TestRunParametersWebhook</code>.
-   * The Webhook is used to call the customer&#39;s own API when an operation in testRTC&#39;s API completes.
-   * @alias module:model/TestRunParametersWebhook
+   * Constructs a new <code>RemoteTestOptions</code>.
+   * Remote test execution options
+   * @alias module:model/RemoteTestOptions
    * @class
-   * @param url {String} The URL to connect to using HTTP(S) GET when the operation completes
-   * @param input {Object} The value to pass to the URL
+   * @param name {String} Test name
    */
-  var exports = function(url, input) {
+  var exports = function(name) {
     var _this = this;
 
-    _this['url'] = url;
-    _this['input'] = input;
+    _this['name'] = name;
   };
 
   /**
-   * Constructs a <code>TestRunParametersWebhook</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>RemoteTestOptions</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/TestRunParametersWebhook} obj Optional instance to populate.
-   * @return {module:model/TestRunParametersWebhook} The populated <code>TestRunParametersWebhook</code> instance.
+   * @param {module:model/RemoteTestOptions} obj Optional instance to populate.
+   * @return {module:model/RemoteTestOptions} The populated <code>RemoteTestOptions</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('url')) {
-        obj['url'] = ApiClient.convertToType(data['url'], 'String');
-      }
-      if (data.hasOwnProperty('input')) {
-        obj['input'] = ApiClient.convertToType(data['input'], Object);
+      if (data.hasOwnProperty('name')) {
+        obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * The URL to connect to using HTTP(S) GET when the operation completes
-   * @member {String} url
+   * Test name
+   * @member {String} name
    */
-  exports.prototype['url'] = undefined;
-  /**
-   * The value to pass to the URL
-   * @member {Object} input
-   */
-  exports.prototype['input'] = undefined;
+  exports.prototype['name'] = undefined;
 
 
 

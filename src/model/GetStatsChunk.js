@@ -34,7 +34,7 @@
     if (!root.TestRtcApi) {
       root.TestRtcApi = {};
     }
-    root.TestRtcApi.TestRunParametersWebhook = factory(root.TestRtcApi.ApiClient);
+    root.TestRtcApi.GetStatsChunk = factory(root.TestRtcApi.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,57 +43,56 @@
 
 
   /**
-   * The TestRunParametersWebhook model module.
-   * @module model/TestRunParametersWebhook
+   * The GetStatsChunk model module.
+   * @module model/GetStatsChunk
    * @version 1.0.0
    */
 
   /**
-   * Constructs a new <code>TestRunParametersWebhook</code>.
-   * The Webhook is used to call the customer&#39;s own API when an operation in testRTC&#39;s API completes.
-   * @alias module:model/TestRunParametersWebhook
+   * Constructs a new <code>GetStatsChunk</code>.
+   * GetStats data collected during remote test execution (via SDK)
+   * @alias module:model/GetStatsChunk
    * @class
-   * @param url {String} The URL to connect to using HTTP(S) GET when the operation completes
-   * @param input {Object} The value to pass to the URL
+   * @param data {Object} GetStats data
    */
-  var exports = function(url, input) {
+  var exports = function(data) {
     var _this = this;
 
-    _this['url'] = url;
-    _this['input'] = input;
+    _this['data'] = data;
+
   };
 
   /**
-   * Constructs a <code>TestRunParametersWebhook</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>GetStatsChunk</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/TestRunParametersWebhook} obj Optional instance to populate.
-   * @return {module:model/TestRunParametersWebhook} The populated <code>TestRunParametersWebhook</code> instance.
+   * @param {module:model/GetStatsChunk} obj Optional instance to populate.
+   * @return {module:model/GetStatsChunk} The populated <code>GetStatsChunk</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('url')) {
-        obj['url'] = ApiClient.convertToType(data['url'], 'String');
+      if (data.hasOwnProperty('data')) {
+        obj['data'] = ApiClient.convertToType(data['data'], Object);
       }
-      if (data.hasOwnProperty('input')) {
-        obj['input'] = ApiClient.convertToType(data['input'], Object);
+      if (data.hasOwnProperty('isLastChunk')) {
+        obj['isLastChunk'] = ApiClient.convertToType(data['isLastChunk'], 'Boolean');
       }
     }
     return obj;
   }
 
   /**
-   * The URL to connect to using HTTP(S) GET when the operation completes
-   * @member {String} url
+   * GetStats data
+   * @member {Object} data
    */
-  exports.prototype['url'] = undefined;
+  exports.prototype['data'] = undefined;
   /**
-   * The value to pass to the URL
-   * @member {Object} input
+   * Indicates that the test run should be finalized after this chunk of data
+   * @member {Boolean} isLastChunk
    */
-  exports.prototype['input'] = undefined;
+  exports.prototype['isLastChunk'] = undefined;
 
 
 
